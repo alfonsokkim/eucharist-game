@@ -1,0 +1,17 @@
+{
+  "name": "recreate-the-mass",
+  "version": "1.0.0",
+  "description": "A live, in-person classroom game for learning the order of the Liturgy of the Eucharist.",
+  "main": "server/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server/server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "socket.io": "^4.7.5"
+  }
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>Recreate the Mass</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body class="player-body">
+  <!-- JOIN -->
+  <section id="view-join" class="join-screen">
+    <div class="join-card">
+      <h1>Recreate the Mass</h1>
+      <div class="sub">Walk into the church and help lead the Liturgy of the Eucharist.</div>
+      <label for="join-name">Your name</label>
+      <input id="join-name" type="text" autocomplete="off" maxlength="18" placeholder="e.g. Maria" />
+      <button class="btn-primary" id="join-btn">Walk in →</button>
+      <div class="join-error" id="join-error"></div>
+    </div>
+  </section>
+
+  <!-- GAME -->
+  <section id="view-game" class="game-screen hidden">
+    <canvas id="world"></canvas>
+
+    <div class="phud-top">
+      <div class="phud-title" id="p-step-title"></div>
+      <div class="phud-prompt" id="p-step-prompt"></div>
+      <div class="phud-timer hidden" id="p-timer"></div>
+    </div>
+
+    <div class="joystick" id="joystick">
+      <div class="joystick-knob" id="joystick-knob"></div>
+    </div>
+
+    <!-- toast / overlays -->
+    <div class="toast hidden" id="role-pop"></div>
+    <div class="toast result hidden" id="result-pop"></div>
+    <div class="toast end hidden" id="end-pop"></div>
+    <div class="hint" id="move-hint">Drag anywhere to walk</div>
+  </section>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/shared/socket-events.js"></script>
+  <script src="/shared/world-config.js"></script>
+  <script src="/sprites.js"></script>
+  <script src="/world.js"></script>
+  <script src="/player/player.js"></script>
+</body>
+</html>

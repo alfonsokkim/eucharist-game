@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recreate the Mass — Host</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body class="host-body">
+  <canvas id="world"></canvas>
+
+  <div class="host-topbar">
+    <div class="host-brand">
+      Recreate the Mass
+      <span class="sub">Liturgy of the Eucharist</span>
+    </div>
+    <div class="host-topright">
+      <div class="join-hint">
+        <div class="label">Join on your phone</div>
+        <div class="addr" id="join-addr">open this page's address</div>
+      </div>
+      <div class="pill" id="player-pill">0 in church</div>
+      <button id="mute-toggle" class="mute-toggle">🔔</button>
+    </div>
+  </div>
+
+  <!-- big centred message overlay -->
+  <div class="host-overlay" id="overlay">
+    <div class="overlay-card" id="overlay-card"></div>
+  </div>
+
+  <!-- bottom HUD -->
+  <div class="host-hud" id="hud">
+    <div class="hud-step">
+      <div class="hud-step-title" id="step-title">Get ready</div>
+      <div class="hud-step-prompt" id="step-prompt">Players are walking in. Press Start when the class is ready.</div>
+      <div class="hud-timer-wrap hidden" id="timer-wrap">
+        <div class="hud-timer-bar"><div class="hud-timer-fill" id="timer-fill"></div></div>
+        <div class="hud-timer-text" id="timer-text"></div>
+      </div>
+    </div>
+
+    <div class="hud-tally" id="tally">
+      <div class="hud-tally-row" data-index="0"><span class="t-text"></span><span class="t-bar"><i></i></span><span class="t-count">0</span></div>
+      <div class="hud-tally-row" data-index="1"><span class="t-text"></span><span class="t-bar"><i></i></span><span class="t-count">0</span></div>
+      <div class="hud-tally-row" data-index="2"><span class="t-text"></span><span class="t-bar"><i></i></span><span class="t-count">0</span></div>
+    </div>
+
+    <div class="hud-controls">
+      <button class="btn-primary" id="btn-start">Start</button>
+      <button class="btn-primary" id="btn-reveal" disabled>Reveal</button>
+      <button class="btn-primary" id="btn-next" disabled>Next</button>
+      <button class="btn-primary" id="btn-restart" disabled>Restart</button>
+      <button class="btn-ghost" id="btn-reassign" disabled>New priest</button>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/shared/socket-events.js"></script>
+  <script src="/shared/world-config.js"></script>
+  <script src="/sprites.js"></script>
+  <script src="/world.js"></script>
+  <script src="/host/host.js"></script>
+</body>
+</html>
