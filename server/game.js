@@ -5,9 +5,9 @@
 const { PHASES } = require("../public/shared/socket-events.js");
 const WC = require("../public/shared/world-config.js");
 
-const VOTE_SECONDS = 25;        // per-step countdown
+const VOTE_SECONDS = 30;        // per-step countdown (a little time to walk + think)
 const CUTSCENE_WALK_MS = 1300;  // priest walks to the station on success
-const ALL_IN_GRACE_MS = 2200;   // earliest auto-resolve once everyone is in a zone
+const ALL_IN_GRACE_MS = 2500;   // earliest auto-resolve once everyone is in a zone
 
 function shuffle(arr) {
   const a = arr.slice();
@@ -28,6 +28,7 @@ function prepareStep(step) {
     priestAction: step.priestAction,
     prompt: step.prompt,
     explain: step.explain,
+    teach: step.teach || null,
     cards: order.map((i) => ({ text: step.cards[i].text })),
     correctIndex: order.findIndex((i) => step.cards[i].correct)
   };
@@ -193,7 +194,10 @@ class Game {
       majorityIndex,
       success,
       explain: step.explain,
-      station: step.station
+      station: step.station,
+      title: step.title,
+      correctText: step.cards[step.correctIndex].text,
+      teach: step.teach
     };
 
     // On success the priest avatar walks to the station for the cutscene.

@@ -29,3 +29,41 @@ Preparation of the Gifts → Offering the Bread → Preparing the Chalice →
 Washing of Hands → Invitation to Pray → Preface Dialogue → Sanctus → Epiclesis →
 Consecration → Mystery of Faith → Our Father → Sign of Peace → Fraction →
 Holy Communion.
+
+THE 14 STEPS, IN ORDER (authoritative — do not reorder; keep the mix-ups as
+contrasts, not also-correct answers):
+1. Preparation of the Gifts — priest prepares the altar and receives the bread and
+   wine. Why: the Liturgy of the Word has ended; the gifts are presented. Mix-up:
+   the Gospel was read earlier, in the Liturgy of the Word.
+2. Offering the Bread — lifts the bread, "Blessed are you, Lord God of all
+   creation." Why: bread first, then wine. Mix-up: the collection is never raised
+   up for worship.
+3. Preparing the Chalice — wine with a little water. Why: the mingling signifies
+   Christ's divinity joined to our humanity.
+4. Washing of Hands (Lavabo) — "Wash me, O Lord, from my iniquity." Why: desire for
+   inner purity before the Eucharistic Prayer.
+5. Invitation to Pray (Orate fratres) — "Pray, brothers and sisters, that my
+   sacrifice and yours may be acceptable to God." Why: invites the assembly to
+   offer the sacrifice. Mix-up: "Go in peace" is the dismissal at the end.
+6. The Eucharistic Prayer Begins (Preface Dialogue) — "The Lord be with you… Lift
+   up your hearts… Let us give thanks to the Lord our God." Why: lifts our hearts
+   into thanksgiving ("Eucharist"). Mix-up: the Confiteor belongs near the start.
+7. Holy, Holy, Holy (Sanctus) — the assembly sings "Holy, Holy, Holy Lord God of
+   hosts." Why: joins our voices to the angels (Isaiah 6:3). Mix-up: the Gloria is
+   near the start; the Lamb of God comes later.
+8. Calling the Holy Spirit (Epiclesis) — hands extended over the gifts, calling the
+   Spirit to consecrate them. Why: asks the Father to send the Spirit so the gifts
+   become the Body and Blood of Christ.
+9. The Consecration — Jesus' words: "This is my Body…" / "This is the chalice of my
+   Blood…" Why: by Christ's words through the priest, bread and wine become his
+   Body and Blood — transubstantiation. The central, most sacred moment.
+10. The Mystery of Faith (optio"; people respond with
+    the Memorial Acclamation. Why: we proclaim Christ's death and resurrection;
+    the prayer closes with the
+11. The Our Father — the Communion Rite begins with the Lord's Prayer. Why: "give
+    us this day our daily bread
+12. The Sign of Peace — all share Christ's peace. Why: a sign we are one community.
+13. The Breaking of the Bread (crated bread as the
+    "Lamb of God" is sung. Why: this action named the Eucharist for the early Church.
+14. Holy Communion — "The Body men" means "I believe."
+    The Liturgy of the Eucharist is complete; Mass closes with the Concluding Rites.

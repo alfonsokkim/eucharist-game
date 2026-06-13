@@ -104,11 +104,20 @@
     if (myZone < 0) line = "You weren't standing on an answer.";
     else if (myZone === res.correctIndex) line = "You were on the right answer! ✓";
     else line = "You were on a different answer.";
+    const t = res.teach || {};
+    const teachHtml = res.teach
+      ? `<div class="teach">
+           <div class="teach-row"><span class="teach-label">What happens</span><p>${esc(t.whatHappens)}</p></div>
+           <div class="teach-row"><span class="teach-label">Why it matters</span><p>${esc(t.meaning)}</p></div>
+           <div class="teach-row"><span class="teach-label">In Scripture</span><p>${esc(t.scripture)}</p></div>
+         </div>`
+      : `<div class="result-explain">${esc(res.explain)}</div>`;
     refs.resultPop.className = "toast result " + (res.success ? "ok" : "no");
     refs.resultPop.innerHTML =
       `<div class="result-head">${res.success ? "The class got it right!" : "The class missed this one"}</div>
        <div class="result-mine">${line}</div>
-       <div class="result-explain">${esc(res.explain)}</div>`;
+       <div class="reveal-answer">✓ <strong>${esc(res.title)}</strong> — ${esc(res.correctText)}</div>
+       ${teachHtml}`;
     refs.resultPop.classList.remove("hidden");
   });
 
