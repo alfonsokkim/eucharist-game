@@ -269,7 +269,72 @@ const ADVANCED_STEPS = [
   }
 ];
 
-// The server plays the default game. CORE_STEPS = the 6-step, 30-minute version.
-const STEPS = CORE_STEPS;
+// Opening definition questions (from the "What is the Liturgy of the Eucharist?"
+// slide). Concept questions, not procedure. On a correct answer the priest walks
+// to the ambo (the place of teaching) before the procedure begins at the altar.
+const DEFINITION_STEPS = [
+  {
+    id: "def-transubstantiation",
+    title: "Transubstantiation",
+    station: "ambo",
+    priestAction: "teaches the mystery of the Eucharist",
+    prompt: "At the Consecration, the bread and wine truly become the Body and Blood of Christ. What is this change called?",
+    cards: [
+      { text: "Transubstantiation", correct: true },
+      { text: "Transfiguration", correct: false },
+      { text: "Reformation", correct: false }
+    ],
+    explain: "Transubstantiation: the bread and wine truly become the Body and Blood of Christ, even though they still appear to be bread and wine."
+  },
+  {
+    id: "def-real-presence",
+    title: "The Real Presence",
+    station: "ambo",
+    priestAction: "teaches the mystery of the Eucharist",
+    prompt: "We believe Jesus is truly present in the Eucharist: body, blood, soul, and divinity. What do we call this?",
+    cards: [
+      { text: "The Real Presence", correct: true },
+      { text: "A symbol of Jesus", correct: false },
+      { text: "Just a holy reminder", correct: false }
+    ],
+    explain: "The Real Presence: it is truly Jesus himself, body, blood, soul, and divinity, not merely a symbol or a reminder."
+  }
+];
 
-module.exports = { STEPS, CORE_STEPS, ADVANCED_STEPS };
+// Closing "why it matters" questions (from the "Why the Eucharist Matters"
+// slide). On a correct answer the priest moves toward the altar, and for being
+// sent on mission, toward the entrance (going out to the world).
+const MEANING_STEPS = [
+  {
+    id: "meaning-sacrifice",
+    title: "Why It Matters: Christ's Sacrifice",
+    station: "altar",
+    priestAction: "recalls Christ's one sacrifice",
+    prompt: "Why does the Eucharist matter? What does the Mass make present again?",
+    cards: [
+      { text: "Jesus' one sacrifice on the Cross", correct: true },
+      { text: "A brand-new sacrifice each time", correct: false },
+      { text: "Only a shared meal, nothing more", correct: false }
+    ],
+    explain: "The Mass is not a new sacrifice. It makes Jesus' one sacrifice on the Cross present to us again, bringing forgiveness of sins and reconciliation with God."
+  },
+  {
+    id: "meaning-sent",
+    title: "Why It Matters: Sent on Mission",
+    station: "entrance",
+    priestAction: "sends the people out on mission",
+    prompt: "Strengthened by Holy Communion, what are we sent out to do?",
+    cards: [
+      { text: "Love the people around us and live the Gospel", correct: true },
+      { text: "Keep the gift to ourselves", correct: false },
+      { text: "Wait passively until next Sunday", correct: false }
+    ],
+    explain: "We are sent on mission. Strengthened by Christ, we go out to love our neighbour and live the Gospel in our everyday lives."
+  }
+];
+
+// The default game: 2 definition questions, the 6 procedure steps in order,
+// then 2 "why it matters" questions. (~15 minutes.)
+const STEPS = [...DEFINITION_STEPS, ...CORE_STEPS, ...MEANING_STEPS];
+
+module.exports = { STEPS, DEFINITION_STEPS, CORE_STEPS, MEANING_STEPS, ADVANCED_STEPS };
