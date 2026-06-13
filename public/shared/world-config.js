@@ -8,7 +8,7 @@ const WORLD_H = 30 * TILE; // 1200
 const WALL = TILE; // border thickness
 
 const PLAYER_RADIUS = 15;
-const PLAYER_SPEED = 240; // world px / second
+const PLAYER_SPEED = 180; // world px / second (75% of the original 240)
 
 // Solid rectangles players cannot walk through (collision is resolved client
 // side; the server just clamps to the world bounds).
