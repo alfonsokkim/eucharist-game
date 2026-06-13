@@ -27,7 +27,7 @@ button:disabled { opacity: 0.4; cursor: not-allowed; }
 /* ============================ HOST ============================ */
 .host-body { background: #1c1530; color: #fff; }
 
-.host-topbar { position: fixed; top: 0; left: 0; right: 0; display: flex; justify-content: space-between; align-items: flex-start; padding: 16px 20px; pointer-events: none; z-index: 10; }
+.host-topbar { position: fixed; top: 0; left: 0; right: 0; display: flex; justify-content: space-between; align-items: flex-start; padding: 16px 20px; pointer-events: none; z-index: 30; }
 .host-brand { font-size: 1.5rem; font-weight: 900; text-shadow: 0 2px 8px rgba(0,0,0,.5); }
 .host-brand .sub { display: block; font-size: .8rem; font-weight: 600; color: var(--gold); }
 .host-topright { display: flex; align-items: center; gap: 12px; pointer-events: auto; }
@@ -37,7 +37,7 @@ button:disabled { opacity: 0.4; cursor: not-allowed; }
 .pill { background: var(--gold); color: var(--violet-deep); font-weight: 800; padding: 8px 14px; border-radius: 20px; }
 .mute-toggle { background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.3); color: #fff; border-radius: 20px; padding: 8px 12px; font-size: 1rem; }
 
-.host-hud { position: fixed; left: 16px; right: 16px; bottom: 16px; display: grid; grid-template-columns: 1.4fr 1fr auto; gap: 16px; align-items: end; z-index: 10; pointer-events: none; }
+.host-hud { position: fixed; left: 16px; right: 16px; bottom: 16px; display: grid; grid-template-columns: 1.4fr 1fr auto; gap: 16px; align-items: end; z-index: 30; pointer-events: none; }
 .host-hud > * { pointer-events: auto; }
 .hud-step { background: rgba(42,31,64,.82); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,.12); border-radius: 16px; padding: 14px 18px; }
 .hud-step-title { font-size: 1.4rem; font-weight: 900; }
@@ -60,7 +60,8 @@ button:disabled { opacity: 0.4; cursor: not-allowed; }
 .hud-controls { display: flex; flex-direction: column; gap: 8px; }
 .hud-controls .btn-primary, .hud-controls .btn-ghost { padding: 12px 22px; }
 
-.host-overlay { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 20; background: rgba(20,12,30,.55); backdrop-filter: blur(3px); }
+.host-overlay { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 20; background: rgba(20,12,30,.55); backdrop-filter: blur(3px); pointer-events: none; }
+.overlay-card { pointer-events: auto; }
 .overlay-card { background: rgba(42,31,64,.94); border: 1px solid rgba(255,255,255,.15); border-radius: 22px; padding: 36px 44px; text-align: center; max-width: 760px; box-shadow: var(--shadow); }
 .overlay-card h2 { font-size: 2.2rem; margin: 0 0 10px; }
 .overlay-card h2.ok { color: #bfe6cc; } .overlay-card h2.no { color: #f0c2c9; }
