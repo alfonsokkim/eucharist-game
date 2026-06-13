@@ -1,28 +1,127 @@
 // Authoritative liturgical content for "Recreate the Mass".
-// The order of these steps follows the Order of Mass (USCCB) and the General
-// Instruction of the Roman Missal. DO NOT reorder the steps or soften the
-// distractors. Each step also carries a `teach` block (whatHappens / meaning /
-// scripture) shown on the reveal so the game teaches, not just quizzes.
+// Order follows the Order of Mass (USCCB) and the General Instruction of the
+// Roman Missal. DO NOT reorder the steps or soften the distractors. Each step
+// carries a `teach` block (whatHappens / meaning / scripture) shown on the
+// reveal so the game teaches, not just quizzes.
+//
+// CORE_STEPS = the default game (6 steps, ~12 min, for the 30-minute lesson).
+// ADVANCED_STEPS = the remaining steps, kept for the fuller version. Nothing is
+// deleted. The server plays CORE_STEPS by default (exported as STEPS).
 
-const STEPS = [
+const CORE_STEPS = [
   {
-    id: "prepare-altar",
-    title: "Preparation of the Gifts",
+    id: "presentation-of-gifts",
+    title: "Presentation of the Gifts",
     station: "altar",
-    priestAction: "prepares the altar and receives the gifts",
+    priestAction: "prepares the altar and offers the bread and wine",
     prompt: "The Liturgy of the Word has just ended. How does the priest begin the Liturgy of the Eucharist?",
     cards: [
-      { text: "Prepare the altar and welcome the bread and wine brought forward", correct: true },
+      { text: "Prepare the altar and offer the bread and wine brought forward", correct: true },
       { text: "Proclaim the Gospel reading", correct: false },
       { text: "Give the final blessing and send everyone home", correct: false }
     ],
-    explain: "The altar is prepared and the gifts of bread and wine are brought up in the Presentation of the Gifts. The Gospel belongs to the Liturgy of the Word, which is already finished.",
+    explain: "The altar is prepared and the gifts of bread and wine are brought up and offered to God. The Gospel belongs to the Liturgy of the Word, already finished.",
     teach: {
       whatHappens: "The altar is prepared with the corporal, purificator, chalice and Missal. Members of the assembly bring the bread and wine forward, often with the collection for the Church and the poor.",
       meaning: "Our ordinary gifts of bread, wine, and the work of our hands are placed on the altar to be transformed. We offer not just things, but ourselves.",
       scripture: "Psalm 104:14-15: bread and wine as the fruit of the earth and work of human hands."
     }
   },
+  {
+    id: "sanctus",
+    title: "Holy, Holy, Holy (Sanctus)",
+    station: "altar",
+    priestAction: "leads the whole assembly in the Sanctus",
+    prompt: "At the end of the Preface, what does everyone sing together?",
+    cards: [
+      { text: "'Holy, Holy, Holy Lord God of hosts' (the Sanctus)", correct: true },
+      { text: "'Lamb of God, you take away the sins of the world'", correct: false },
+      { text: "'Glory to God in the highest' (the Gloria)", correct: false }
+    ],
+    explain: "The Sanctus joins our voices to the angels in heaven (Isaiah 6:3): 'Hosanna in the highest!' The Lamb of God comes later; the Gloria is near the start of Mass.",
+    teach: {
+      whatHappens: "At the end of the Preface all sing: 'Holy, Holy, Holy Lord God of hosts. Heaven and earth are full of your glory. Hosanna in the highest. Blessed is he who comes in the name of the Lord. Hosanna in the highest.'",
+      meaning: "Our voices join the angels and saints in heaven's unending worship. 'Blessed is he who comes...' echoes the crowds welcoming Jesus into Jerusalem.",
+      scripture: "Isaiah 6:3 (the angels' song); Matthew 21:9 (Palm Sunday)."
+    }
+  },
+  {
+    id: "consecration",
+    title: "The Consecration",
+    station: "altar",
+    priestAction: "speaks Jesus' words over the bread and wine",
+    prompt: "The most sacred moment. What words does the priest speak over the bread and wine?",
+    cards: [
+      { text: "Jesus' own words: 'This is my Body...' and 'This is the chalice of my Blood...'", correct: true },
+      { text: "A blessing over the people: 'May almighty God bless you'", correct: false },
+      { text: "The Creed: 'I believe in one God...'", correct: false }
+    ],
+    explain: "This is the Consecration. By Christ's own words, spoken by the priest in the person of Christ, the bread and wine become his Body and Blood. We call this change transubstantiation.",
+    teach: {
+      whatHappens: "Speaking in the person of Christ, the priest repeats Jesus' own words: 'Take this, all of you, and eat of it, for this is my Body, which will be given up for you.' Then over the chalice: 'this is the chalice of my Blood...' He genuflects and elevates the host and the chalice.",
+      meaning: "By Christ's words the bread and wine become his true Body and Blood. The substance is changed though the appearances remain. The Church calls this transubstantiation. This is the source and summit of the Mass.",
+      scripture: "Luke 22:19-20; 1 Corinthians 11:23-25."
+    }
+  },
+  {
+    id: "our-father",
+    title: "The Our Father",
+    station: "altar",
+    priestAction: "leads the Lord's Prayer",
+    prompt: "The Communion Rite begins. Which prayer comes first?",
+    cards: [
+      { text: "The Our Father (the Lord's Prayer)", correct: true },
+      { text: "The Hail Mary", correct: false },
+      { text: "The Apostles' Creed", correct: false }
+    ],
+    explain: "Jesus' own prayer. 'Give us this day our daily bread' even points to the Eucharist we are about to receive.",
+    teach: {
+      whatHappens: "The Communion Rite begins. The priest invites us, and at the Saviour's command all pray together: 'Our Father, who art in heaven...'",
+      meaning: "Jesus' own prayer prepares us to receive him. 'Give us this day our daily bread' looks ahead to the Bread of Life we are about to receive in Communion.",
+      scripture: "Matthew 6:9-13; Luke 11:2-4."
+    }
+  },
+  {
+    id: "sign-of-peace",
+    title: "The Sign of Peace",
+    station: "altar",
+    priestAction: "invites everyone to share Christ's peace",
+    prompt: "Before Communion, what does the priest invite everyone to share?",
+    cards: [
+      { text: "A sign of peace with one another", correct: true },
+      { text: "The final blessing", correct: false },
+      { text: "A second collection", correct: false }
+    ],
+    explain: "We share Christ's peace, a sign that we are one community and all children of God.",
+    teach: {
+      whatHappens: "The priest prays for peace and says, 'The peace of the Lord be with you always,' then invites all to offer one another a sign of peace.",
+      meaning: "Reconciled and united as one body, we share Christ's peace before approaching the one table together.",
+      scripture: "John 20:19: the risen Christ says 'Peace be with you.' See also Matthew 5:23-24."
+    }
+  },
+  {
+    id: "communion",
+    title: "Holy Communion",
+    station: "aisle",
+    priestAction: "gives Communion to the people",
+    prompt: "The people come forward. What does the priest say as he gives each person the host?",
+    cards: [
+      { text: "'The Body of Christ', and the person answers 'Amen'", correct: true },
+      { text: "'Peace be with you'", correct: false },
+      { text: "'Go in peace, the Mass is ended'", correct: false }
+    ],
+    explain: "'Amen' means 'I believe' that this truly is the Body of Christ. The Liturgy of the Eucharist is now complete; the Mass closes with the Concluding Rites.",
+    teach: {
+      whatHappens: "The priest shows the host: 'Behold the Lamb of God...' and all respond, 'Lord, I am not worthy that you should enter under my roof...' Then, giving Communion, the minister says 'The Body of Christ,' and each person answers 'Amen.'",
+      meaning: "'Amen' means 'I believe,' that this truly is the Body of Christ. Receiving worthily, we are united to Christ and to one another. The Liturgy of the Eucharist is now complete; the Mass closes with the Concluding Rites.",
+      scripture: "John 6:51-56; 1 Corinthians 11:27-29."
+    }
+  }
+];
+
+// Not in the default 6-step game. Kept here (nothing deleted); listed in their
+// correct liturgical position so a fuller version can use them in order.
+const ADVANCED_STEPS = [
   {
     id: "offer-bread",
     title: "Offering the Bread",
@@ -114,24 +213,6 @@ const STEPS = [
     }
   },
   {
-    id: "sanctus",
-    title: "Holy, Holy, Holy",
-    station: "altar",
-    priestAction: "leads the whole assembly in the Sanctus",
-    prompt: "At the end of the Preface, what does everyone sing together?",
-    cards: [
-      { text: "'Holy, Holy, Holy Lord God of hosts' (the Sanctus)", correct: true },
-      { text: "'Lamb of God, you take away the sins of the world'", correct: false },
-      { text: "'Glory to God in the highest' (the Gloria)", correct: false }
-    ],
-    explain: "The Sanctus joins our voices to the angels in heaven (Isaiah 6:3): 'Hosanna in the highest!' The Lamb of God comes later; the Gloria is near the start of Mass.",
-    teach: {
-      whatHappens: "At the end of the Preface all sing: 'Holy, Holy, Holy Lord God of hosts. Heaven and earth are full of your glory. Hosanna in the highest. Blessed is he who comes in the name of the Lord. Hosanna in the highest.'",
-      meaning: "Our voices join the angels and saints in heaven's unending worship. 'Blessed is he who comes...' echoes the crowds welcoming Jesus into Jerusalem.",
-      scripture: "Isaiah 6:3 (the angels' song); Matthew 21:9 (Palm Sunday)."
-    }
-  },
-  {
     id: "epiclesis",
     title: "Calling the Holy Spirit",
     station: "altar",
@@ -147,24 +228,6 @@ const STEPS = [
       whatHappens: "The priest extends his hands over the gifts and asks the Father to send the Holy Spirit: '...by the same Spirit graciously make holy these gifts we have brought to you for consecration, that they may become the Body and Blood of your Son.'",
       meaning: "Epiclesis is Greek for 'calling down upon.' The Church calls on the Holy Spirit, who sanctifies the gifts, the same Spirit at work in the Incarnation.",
       scripture: "Luke 1:35: the Holy Spirit overshadows Mary."
-    }
-  },
-  {
-    id: "consecration",
-    title: "The Consecration",
-    station: "altar",
-    priestAction: "speaks Jesus' words over the bread and wine",
-    prompt: "The most sacred moment. What words does the priest speak over the bread and wine?",
-    cards: [
-      { text: "Jesus' own words: 'This is my Body...' and 'This is the chalice of my Blood...'", correct: true },
-      { text: "A blessing over the people: 'May almighty God bless you'", correct: false },
-      { text: "The Creed: 'I believe in one God...'", correct: false }
-    ],
-    explain: "This is the Consecration. By Christ's own words, spoken by the priest in the person of Christ, the bread and wine become his Body and Blood. We call this change transubstantiation.",
-    teach: {
-      whatHappens: "Speaking in the person of Christ, the priest repeats Jesus' own words: 'Take this, all of you, and eat of it, for this is my Body, which will be given up for you.' Then over the chalice: 'this is the chalice of my Blood...' He genuflects and elevates the host and the chalice.",
-      meaning: "By Christ's words the bread and wine become his true Body and Blood. The substance is changed though the appearances remain. The Church calls this transubstantiation. This is the source and summit of the Mass.",
-      scripture: "Luke 22:19-20; 1 Corinthians 11:23-25."
     }
   },
   {
@@ -187,42 +250,6 @@ const STEPS = [
     optional: true
   },
   {
-    id: "our-father",
-    title: "The Our Father",
-    station: "altar",
-    priestAction: "leads the Lord's Prayer",
-    prompt: "The Communion Rite begins. Which prayer comes first?",
-    cards: [
-      { text: "The Our Father (the Lord's Prayer)", correct: true },
-      { text: "The Hail Mary", correct: false },
-      { text: "The Apostles' Creed", correct: false }
-    ],
-    explain: "Jesus' own prayer. 'Give us this day our daily bread' even points to the Eucharist we are about to receive.",
-    teach: {
-      whatHappens: "The Communion Rite begins. The priest invites us, and at the Saviour's command all pray together: 'Our Father, who art in heaven...'",
-      meaning: "Jesus' own prayer prepares us to receive him. 'Give us this day our daily bread' looks ahead to the Bread of Life we are about to receive in Communion.",
-      scripture: "Matthew 6:9-13; Luke 11:2-4."
-    }
-  },
-  {
-    id: "sign-of-peace",
-    title: "The Sign of Peace",
-    station: "altar",
-    priestAction: "invites everyone to share Christ's peace",
-    prompt: "Before Communion, what does the priest invite everyone to share?",
-    cards: [
-      { text: "A sign of peace with one another", correct: true },
-      { text: "The final blessing", correct: false },
-      { text: "A second collection", correct: false }
-    ],
-    explain: "We share Christ's peace, a sign that we are one community and all children of God.",
-    teach: {
-      whatHappens: "The priest prays for peace and says, 'The peace of the Lord be with you always,' then invites all to offer one another a sign of peace.",
-      meaning: "Reconciled and united as one body, we share Christ's peace before approaching the one table together.",
-      scripture: "John 20:19: the risen Christ says 'Peace be with you.' See also Matthew 5:23-24."
-    }
-  },
-  {
     id: "fraction",
     title: "The Breaking of the Bread",
     station: "altar",
@@ -239,25 +266,10 @@ const STEPS = [
       meaning: "The one bread is broken so that the many may share in it. The earliest Christians called the Eucharist itself 'the breaking of the bread.'",
       scripture: "1 Corinthians 10:17; Acts 2:42; Luke 24:35."
     }
-  },
-  {
-    id: "communion",
-    title: "Holy Communion",
-    station: "aisle",
-    priestAction: "gives Communion to the people",
-    prompt: "The people come forward. What does the priest say as he gives each person the host?",
-    cards: [
-      { text: "'The Body of Christ', and the person answers 'Amen'", correct: true },
-      { text: "'Peace be with you'", correct: false },
-      { text: "'Go in peace, the Mass is ended'", correct: false }
-    ],
-    explain: "'Amen' means 'I believe' that this truly is the Body of Christ. The Liturgy of the Eucharist is now complete; the Mass closes with the Concluding Rites.",
-    teach: {
-      whatHappens: "The priest shows the host: 'Behold the Lamb of God...' and all respond, 'Lord, I am not worthy that you should enter under my roof...' Then, giving Communion, the minister says 'The Body of Christ,' and each person answers 'Amen.'",
-      meaning: "'Amen' means 'I believe,' that this truly is the Body of Christ. Receiving worthily, we are united to Christ and to one another. The Liturgy of the Eucharist is now complete; the Mass closes with the Concluding Rites.",
-      scripture: "John 6:51-56; 1 Corinthians 11:27-29."
-    }
   }
 ];
 
-module.exports = { STEPS };
+// The server plays the default game. CORE_STEPS = the 6-step, 30-minute version.
+const STEPS = CORE_STEPS;
+
+module.exports = { STEPS, CORE_STEPS, ADVANCED_STEPS };
