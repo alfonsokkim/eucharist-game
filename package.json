@@ -5,7 +5,8 @@
   "main": "server/server.js",
   "type": "commonjs",
   "scripts": {
-    "start": "node server/server.js"
+    "start": "node server/server.js",
+    "share": "bash share.sh"
   },
   "engines": {
     "node": ">=18"
