@@ -1,4 +1,4 @@
-# Render Blueprint — deploys the Socket.IO game as a persistent web service.
+# Render Blueprint - deploys the Socket.IO game as a persistent web service.
 # In Render: New → Blueprint → point at this repo. Render injects PORT, which
 # server.js already reads. WebSockets work out of the box on Render web services.
 services:

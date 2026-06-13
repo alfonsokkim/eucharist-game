@@ -4,7 +4,7 @@
 // A tiled warm-stone church for the environment. Exposes `window.Sprites`.
 //
 // SWAP-IN ART: to use a real top-down sprite sheet later, replace the body of
-// drawCharacter()/drawEnvironment() with drawImage() blits from your atlas —
+// drawCharacter()/drawEnvironment() with drawImage() blits from your atlas -
 // nothing else in the game needs to change.
 
 (function () {
@@ -28,7 +28,7 @@
   function hueFor(id) { return hashStr(id || "x") % 360; }
   function hairFor(id) { return HAIRS[hashStr((id || "x") + "h") % HAIRS.length]; }
 
-  // outlined block — the crisp pixel look
+  // outlined block - the crisp pixel look
   function blk(ctx, x, y, w, h, fill) {
     ctx.fillStyle = OUTLINE;
     ctx.fillRect(x - 1, y - 1, w + 2, h + 2);
@@ -93,7 +93,7 @@
     }
 
     if (isPriest) {
-      // alb (white robe) — flares to the feet
+      // alb (white robe) - flares to the feet
       blk(ctx, cx - 6 * u, torsoTop, 12 * u, torsoH + legH + 1, ALB);
       rect(ctx, cx - 6 * u, torsoTop + (torsoH + legH) * 0.5, 12 * u, (torsoH + legH) * 0.5, ALB_SH);
       // chasuble (poncho) over the shoulders
@@ -132,7 +132,7 @@
       const noseX = dir === "left" ? hx - 0.6 * u : hx + headW - 1.4 * u;
       rect(ctx, noseX, headTop + headH * 0.6, 1.4 * u, 1.6 * u, SKIN_SH); // nose nub
     } else {
-      // down — top hair + two eyes
+      // down - top hair + two eyes
       rect(ctx, hx, headTop, headW, headH * 0.36, hair);
       rect(ctx, hx, headTop, 2 * u, headH * 0.7, hair); // sideburns
       rect(ctx, hx + headW - 2 * u, headTop, 2 * u, headH * 0.7, hair);
@@ -152,7 +152,7 @@
     const { WORLD_W, WORLD_H, WALL, TILE, OBSTACLES, STATIONS } = WC;
     const SANCT_Y = 360;
 
-    // nave floor — warm stone tiles with a subtle checker
+    // nave floor - warm stone tiles with a subtle checker
     for (let ty = SANCT_Y; ty < WORLD_H; ty += TILE) {
       for (let tx = 0; tx < WORLD_W; tx += TILE) {
         const even = ((tx / TILE) + (ty / TILE)) % 2 === 0;
@@ -222,7 +222,7 @@
     rect(ctx, 755, 70, 90, 70, GOLD);
     rect(ctx, 798, 78, 4, 18, GOLD_SH); rect(ctx, 790, 84, 20, 4, GOLD_SH); // cross
     rect(ctx, 798, 70, 4, 70, "#b8924a"); // door seam
-    // altar — white cloth, gold hem, cross + candles
+    // altar - white cloth, gold hem, cross + candles
     blk(ctx, 700, 170, 200, 80, ALB);
     rect(ctx, 700, 236, 200, 14, GOLD);
     rect(ctx, 700, 170, 200, 6, ALB_SH);

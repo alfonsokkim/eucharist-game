@@ -1,4 +1,4 @@
-// Shared world geometry — loaded by the server (collision/zone logic) and the
+// Shared world geometry - loaded by the server (collision/zone logic) and the
 // browser (rendering + local movement). Keeping it in one place means the
 // server and every client agree on where everything is.
 
@@ -24,7 +24,7 @@ const OBSTACLES = [
   { x: 330, y: 210, w: 80, h: 95 },  // ambo
   { x: 1190, y: 210, w: 80, h: 95 }, // chair
   { x: 1410, y: 250, w: 90, h: 70 }, // credence
-  // pews — four rows, split by a wide central aisle
+  // pews - four rows, split by a wide central aisle
   { x: 120, y: 600, w: 540, h: 48 }, { x: 940, y: 600, w: 540, h: 48 },
   { x: 120, y: 720, w: 540, h: 48 }, { x: 940, y: 720, w: 540, h: 48 },
   { x: 120, y: 840, w: 540, h: 48 }, { x: 940, y: 840, w: 540, h: 48 },

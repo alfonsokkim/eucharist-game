@@ -13,7 +13,7 @@
       this.ctx = canvas.getContext("2d");
       this.mode = (opts && opts.mode) || "host";
       this.selfId = null;
-      this.selfPos = null; // {x,y,dir,moving} — player's local authoritative self
+      this.selfPos = null; // {x,y,dir,moving} - player's local authoritative self
 
       this.entities = new Map(); // id -> render entity
       this.phase = "LOBBY";

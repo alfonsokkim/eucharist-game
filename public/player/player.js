@@ -74,7 +74,7 @@
     const mine = priestId === myId;
     refs.rolePop.className = "toast role " + (mine ? "priest" : "parishioner");
     refs.rolePop.innerHTML = mine
-      ? `<div class="role-badge">♱ You are the PRIEST</div><div>Lead the class — you still walk and vote like everyone else.</div>`
+      ? `<div class="role-badge">♱ You are the PRIEST</div><div>Lead the class. You still walk and vote like everyone else.</div>`
       : `<div class="role-badge">You are a parishioner</div><div>Walk into the answer you think comes next.</div>`;
     refs.rolePop.classList.remove("hidden");
     setTimeout(() => refs.rolePop.classList.add("hidden"), 3200);
@@ -116,7 +116,7 @@
     refs.resultPop.innerHTML =
       `<div class="result-head">${res.success ? "The class got it right!" : "The class missed this one"}</div>
        <div class="result-mine">${line}</div>
-       <div class="reveal-answer">✓ <strong>${esc(res.title)}</strong> — ${esc(res.correctText)}</div>
+       <div class="reveal-answer">✓ <strong>${esc(res.title)}</strong>: ${esc(res.correctText)}</div>
        ${teachHtml}`;
     refs.resultPop.classList.remove("hidden");
   });

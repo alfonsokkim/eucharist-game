@@ -122,9 +122,9 @@
       : `<p>${esc(res.explain)}</p>`;
     showOverlay(
       `<h2 class="${res.success ? "ok" : "no"}">${res.success ? "✓ The class chose well!" : res.majorityIndex < 0 ? "No clear choice" : "Not quite"}</h2>
-       <div class="reveal-answer">✓ <strong>${esc(res.title)}</strong> — ${esc(res.correctText)}</div>
+       <div class="reveal-answer">✓ <strong>${esc(res.title)}</strong>: ${esc(res.correctText)}</div>
        ${teachHtml}
-       <p class="dim">Take a moment to teach this — then press <strong>Next</strong>.</p>`
+       <p class="dim">Take a moment to teach this, then press <strong>Next</strong>.</p>`
     );
     chime(res.success);
   });
@@ -132,8 +132,8 @@
   socket.on(EVENTS.GAME_OVER, ({ correctSteps, totalSteps, accuracyPct }) => {
     world.setStep(null); world.setResult(null);
     refs.timerWrap.classList.add("hidden"); clearTally();
-    const msg = accuracyPct >= 90 ? "Beautifully done!" : accuracyPct >= 60 ? "Well done — a few to revisit." : "A great start — let's walk it again.";
-    showOverlay(`<h2>The Liturgy of the Eucharist — complete</h2>
+    const msg = accuracyPct >= 90 ? "Beautifully done!" : accuracyPct >= 60 ? "Well done. A few to revisit." : "A great start. Let's walk it again.";
+    showOverlay(`<h2>The Liturgy of the Eucharist: complete</h2>
                  <div class="big">${accuracyPct}%</div>
                  <p>${correctSteps} of ${totalSteps} steps in the right order.</p><p>${msg}</p>`);
     chime(accuracyPct >= 60);

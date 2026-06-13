@@ -111,7 +111,7 @@ button:disabled { opacity: 0.4; cursor: not-allowed; }
 .hint { position: fixed; bottom: calc(24px + env(safe-area-inset-bottom)); right: 24px; background: rgba(42,31,64,.8); color: #fff; padding: 8px 14px; border-radius: 20px; font-size: .85rem; z-index: 12; transition: opacity .6s; }
 .hint.fade { opacity: 0; }
 
-/* teaching reveal — shared by host overlay card + player result toast */
+/* teaching reveal - shared by host overlay card + player result toast */
 .overlay-card { max-height: 86vh; overflow-y: auto; }
 .reveal-answer { margin: 8px auto 16px; padding: 10px 16px; background: rgba(216,180,106,.18); border: 1px solid rgba(216,180,106,.5); border-radius: 12px; color: #fff; text-align: left; line-height: 1.35; }
 .teach { text-align: left; display: flex; flex-direction: column; gap: 14px; }

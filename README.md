@@ -5,7 +5,7 @@ lesson on the **Liturgy of the Eucharist**. It's a shared open-world: students
 join on their phones, pick a name, and walk a little pixel-art avatar around a
 top-down church. The teacher runs the **host screen** on a projector showing the
 whole church. Each step of the Mass asks a question and three **answer pads**
-light up in the nave — students **walk into the pad** they think is correct
+light up in the nave - students **walk into the pad** they think is correct
 before the timer runs out. The most-crowded pad is the class's answer: if it's
 right, the chosen priest performs the action and the game advances; if not, the
 correct answer is revealed with a short explanation. The session ends with a
@@ -30,7 +30,7 @@ Find your laptop's LAN IP: macOS `ipconfig getifaddr en0` · Windows `ipconfig`
 (IPv4) · Linux `hostname -I`. The host screen also shows the address to type.
 
 > **Firewall note:** the first run may prompt to allow `node` on the local
-> network — allow it, or phones can't reach the host.
+> network - allow it, or phones can't reach the host.
 
 ## How to play
 
@@ -52,7 +52,7 @@ Find your laptop's LAN IP: macOS `ipconfig getifaddr en0` · Windows `ipconfig`
 
 ### Movement controls (phones)
 
-Drag **anywhere** on the screen — a joystick appears under your thumb and your
+Drag **anywhere** on the screen - a joystick appears under your thumb and your
 avatar walks. (On a laptop you can also test with **WASD / arrow keys**.)
 
 ### Host controls
@@ -68,9 +68,9 @@ avatar walks. (On a laptop you can also test with **WASD / arrow keys**.)
 
 ## Design decisions
 
-- **One global world, no room codes** — anyone who opens the page and picks a
+- **One global world, no room codes** - anyone who opens the page and picks a
   name is in. The teacher just presses Start.
-- **Voting is positional** — your avatar's pad is your vote. Plurality wins; a
+- **Voting is positional** - your avatar's pad is your vote. Plurality wins; a
   tie or an empty result counts as incorrect (teaching mode), then advances.
 - **Per-step timer** (~25s, in `server/game.js` `VOTE_SECONDS`). It also resolves
   early once everyone is standing on a pad, or when the teacher hits Reveal.
@@ -79,7 +79,7 @@ avatar walks. (On a laptop you can also test with **WASD / arrow keys**.)
 
 ## Fairness
 
-The server **never** sends which pad is correct to any client — only the card
+The server **never** sends which pad is correct to any client - only the card
 text and pad positions. Correctness is computed server-side and revealed only
 when a step resolves. Cards are shuffled once per step on the server and the
 same layout is sent to everyone.
@@ -88,7 +88,7 @@ same layout is sent to everyone.
 
 The characters and church are drawn as **procedural 16-bit / GBA-Pokémon-style
 pixel sprites** (animated 4-direction walk cycles, distinct priest vestments,
-tiled stone church with pews, altar, stained glass) — see `public/sprites.js`.
+tiled stone church with pews, altar, stained glass) - see `public/sprites.js`.
 No image assets are required, so it runs immediately. To drop in a real
 top-down sprite sheet later, replace the draw calls in `drawCharacter()` /
 `drawEnvironment()` with `drawImage()` blits from your atlas (e.g. a free CC0
@@ -99,8 +99,8 @@ pack from [Kenney.nl](https://kenney.nl)); nothing else needs to change.
 Movement is **client-authoritative** (each phone integrates its own avatar from
 the joystick, resolves collision against the shared `world-config.js` geometry,
 and reports its position ~12×/sec). The server keeps the authoritative game
-state — phase, the chosen priest, the per-step timer, zone occupancy, scoring,
-and the priest cutscene — and broadcasts a world snapshot to everyone at 20 Hz.
+state - phase, the chosen priest, the per-step timer, zone occupancy, scoring,
+and the priest cutscene - and broadcasts a world snapshot to everyone at 20 Hz.
 This is the standard lightweight ".io game" approach and feels responsive on a
 classroom LAN. (Cheating isn't a concern here: pads aren't labelled "correct,"
 so a forged position can't reveal the answer.)
@@ -129,8 +129,8 @@ README.md
 
 ## Notes
 
-- All state is **in memory** — no database. Restarting the server clears the
-  world. (This is why it needs a host that keeps a long-running process — see
+- All state is **in memory** - no database. Restarting the server clears the
+  world. (This is why it needs a host that keeps a long-running process - see
   Deployment.)
 
 ## Deployment
@@ -138,7 +138,7 @@ README.md
 This is a **stateful WebSocket server** (a persistent Node process with an
 in-memory game loop), so it must run on a host that supports long-lived
 processes and WebSockets. **Serverless platforms like Vercel do not work** for
-this — their functions don't keep a process alive or hold a WebSocket open.
+this - their functions don't keep a process alive or hold a WebSocket open.
 
 Recommended: **Render** (free tier, WebSocket-friendly). A `render.yaml` is
 included, so:

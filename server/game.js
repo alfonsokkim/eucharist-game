@@ -5,9 +5,8 @@
 const { PHASES } = require("../public/shared/socket-events.js");
 const WC = require("../public/shared/world-config.js");
 
-const VOTE_SECONDS = 30;        // per-step countdown (a little time to walk + think)
+const VOTE_SECONDS = 30;        // per-step countdown (time to walk + think)
 const CUTSCENE_WALK_MS = 1300;  // priest walks to the station on success
-const ALL_IN_GRACE_MS = 2500;   // earliest auto-resolve once everyone is in a zone
 
 function shuffle(arr) {
   const a = arr.slice();
@@ -47,7 +46,6 @@ class Game {
     this.correctSteps = 0;
 
     this.voteDeadline = 0;   // ms timestamp
-    this.allInSince = 0;     // when everyone first stood in a zone
     this.lastResult = null;
     this.cutscene = null;    // priest walk animation during STEP_RESULT
   }
@@ -133,7 +131,6 @@ class Game {
   beginVoting(now) {
     this.phase = PHASES.STEP_VOTING;
     this.voteDeadline = now + VOTE_SECONDS * 1000;
-    this.allInSince = 0;
     this.lastResult = null;
     this.cutscene = null;
     return this.currentStep();
@@ -153,19 +150,12 @@ class Game {
     return { counts, voted, total: this.players.size };
   }
 
-  // Called every tick while voting. Returns "resolve" if it's time to resolve.
+  // Called every tick while voting. The step resolves ONLY when the timer runs
+  // out; the host can end it early with Reveal. (No auto-resolve when everyone
+  // is on a pad.) Returns "resolve" when it is time to resolve.
   tickVoting(now) {
     if (this.phase !== PHASES.STEP_VOTING) return null;
-    const { voted, total } = this.tally();
-    const everyoneIn = total > 0 && voted === total;
-    if (everyoneIn) {
-      if (!this.allInSince) this.allInSince = now;
-    } else {
-      this.allInSince = 0;
-    }
-    const timeUp = now >= this.voteDeadline;
-    const settled = everyoneIn && now - this.allInSince >= ALL_IN_GRACE_MS;
-    return timeUp || settled ? "resolve" : null;
+    return now >= this.voteDeadline ? "resolve" : null;
   }
 
   timeLeftMs(now) {
@@ -274,7 +264,7 @@ class Game {
     };
   }
 
-  // game:step payload — text only, NEVER the correctIndex.
+  // game:step payload (text only, NEVER the correctIndex).
   stepPayload() {
     const step = this.currentStep();
     if (!step) return null;

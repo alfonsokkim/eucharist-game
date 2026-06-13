@@ -151,7 +151,7 @@ io.on("connection", (socket) => {
 });
 
 server.listen(PORT, () => {
-  console.log(`\n  Recreate the Mass — running`);
+  console.log(`\n  Recreate the Mass - running`);
   console.log(`  Host screen:  http://localhost:${PORT}/host`);
   console.log(`  Players join: http://localhost:${PORT}/   (use your LAN IP on phones)\n`);
 });
