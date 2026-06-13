@@ -5,7 +5,7 @@
 const { PHASES } = require("../public/shared/socket-events.js");
 const WC = require("../public/shared/world-config.js");
 
-const VOTE_SECONDS = 30;        // per-step countdown (time to walk + think)
+const VOTE_SECONDS = 20;        // per-step countdown (time to walk + think)
 const CUTSCENE_WALK_MS = 1300;  // priest walks to the station on success
 
 function shuffle(arr) {

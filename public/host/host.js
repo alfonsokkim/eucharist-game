@@ -5,7 +5,7 @@
   const world = new WorldView(document.getElementById("world"), { mode: "host" });
   world.start();
 
-  const VOTE_MS = 25000; // matches server VOTE_SECONDS for the timer bar
+  const VOTE_MS = 20000; // matches server VOTE_SECONDS for the timer bar
   const el = (id) => document.getElementById(id);
   const refs = {
     joinAddr: el("join-addr"), playerPill: el("player-pill"),
@@ -112,19 +112,11 @@
       r.classList.toggle("correct", i === res.correctIndex);
       r.classList.toggle("wrong", !res.success && i === res.majorityIndex && res.majorityIndex >= 0);
     });
-    const t = res.teach || {};
-    const teachHtml = res.teach
-      ? `<div class="teach">
-           <div class="teach-row"><span class="teach-label">What happens</span><p>${esc(t.whatHappens)}</p></div>
-           <div class="teach-row"><span class="teach-label">Why it matters</span><p>${esc(t.meaning)}</p></div>
-           <div class="teach-row"><span class="teach-label">In Scripture</span><p>${esc(t.scripture)}</p></div>
-         </div>`
-      : `<p>${esc(res.explain)}</p>`;
     showOverlay(
       `<h2 class="${res.success ? "ok" : "no"}">${res.success ? "✓ The class chose well!" : res.majorityIndex < 0 ? "No clear choice" : "Not quite"}</h2>
        <div class="reveal-answer">✓ <strong>${esc(res.title)}</strong>: ${esc(res.correctText)}</div>
-       ${teachHtml}
-       <p class="dim">Take a moment to teach this, then press <strong>Next</strong>.</p>`
+       <p class="explain-line">${esc(res.explain)}</p>
+       <p class="dim">Press <strong>Next</strong> to continue.</p>`
     );
     chime(res.success);
   });

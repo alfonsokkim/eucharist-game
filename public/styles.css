@@ -120,8 +120,10 @@ button:disabled { opacity: 0.4; cursor: not-allowed; }
 .overlay-card .teach-row p { font-size: 1.1rem; }
 .overlay-card .reveal-answer { font-size: 1.15rem; }
 
+.overlay-card .explain-line { text-align: left; font-size: 1.15rem; line-height: 1.5; color: rgba(255,255,255,.9); }
 .toast.result { max-height: 82vh; overflow-y: auto; text-align: left; }
 .toast.result .result-head, .toast.result .result-mine { text-align: center; }
+.toast .result-explain { font-size: .95rem; line-height: 1.45; color: rgba(255,255,255,.9); margin-top: 6px; }
 .toast .teach-row p { font-size: .92rem; }
 .toast .reveal-answer { font-size: .95rem; }
 
